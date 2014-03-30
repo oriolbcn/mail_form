@@ -19,6 +19,8 @@ module MailForm
       headers = resource.headers
       headers[:from]    ||= resource.email
       headers[:subject] ||= resource.class.model_name.human
+
+      headers resource.custom_headers
       mail(headers)
     end
   end
